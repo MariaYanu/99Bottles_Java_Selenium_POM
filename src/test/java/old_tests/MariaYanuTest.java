@@ -79,7 +79,7 @@ public class MariaYanuTest extends BaseTest {
 
         List<String> textOfHeaderLinks = getTextListOfElements(HEADER_LINKS, getDriver());
 
-        for (int i = 0; i < TEXT_OF_HEADER_LINKS.length; i++){
+        for (int i = 0; i < textOfHeaderLinks.size(); i++){
 
             Assert.assertEquals(textOfHeaderLinks.get(i), TEXT_OF_HEADER_LINKS[i].toLowerCase());
         }

@@ -14,9 +14,9 @@ public class StartTest extends BaseTest {
        String headerText =
                openBaseURL()
                .clickStartLink()
-                .getTextOfHeader();
+                .getH2HeaderText();
 
-        Assert.assertEquals(headerText, startPage.getHeaderText() );
+        Assert.assertEquals(headerText, startPage.getH2HeaderText() );
 
     }
 }

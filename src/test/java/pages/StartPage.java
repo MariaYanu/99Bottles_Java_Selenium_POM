@@ -7,17 +7,17 @@ import org.openqa.selenium.support.FindBy;
 public class StartPage extends StartSubMenuPage{
 
     @FindBy(xpath = "//div[@id='main']/h2")
-    private WebElement header;
-    private final String HEADER_TEXT = "Welcome to 99 Bottles of Beer";
+    private WebElement h2Header;
+    private final String H2_HEADER_TEXT = "Welcome to 99 Bottles of Beer";
 
     public StartPage(WebDriver driver) {
         super(driver);
     }
 
-    public String getHeaderText(){return HEADER_TEXT;}
+    public String getH2_HEADER_TEXT(){return H2_HEADER_TEXT;}
 
-    public String getTextOfHeader(){
+    public String getH2HeaderText(){
 
-        return getTextOfElement(header);
+        return getElementText(h2Header);
     }
 }

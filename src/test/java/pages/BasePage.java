@@ -20,7 +20,7 @@ public abstract class BasePage {
         return driver;
     }
 
-    public String getTextOfElement(WebElement element) {
+    public String getElementText(WebElement element) {
         return element.getText();
     }
 
