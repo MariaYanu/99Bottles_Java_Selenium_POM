@@ -1,41 +1,35 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class SearchLanguagesPage extends SearchLanguagesSubMenuPage{
 
-   private final By SEARCH_FOR_FIELD = By.name("search");
-   private final By GO_BUTTON = By.xpath("//input[@type='submit']");
+    @FindBy(name = "search")
+    private WebElement searchForField;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    private WebElement goButton;
 
     public SearchLanguagesPage(WebDriver driver) {
         super(driver);
     }
 
-    protected By getSearchForField(){
-
-        return SEARCH_FOR_FIELD;
-    }
-
-    protected By getGoButton() {
-
-        return GO_BUTTON;
-    }
-
     public SearchLanguagesPage clickSearchForField(){
-        click(getSearchForField());
+        click(searchForField);
 
         return this;
     }
 
     public SearchLanguagesPage inputSearchCriteria(String text) {
-        input(text,getSearchForField());
+        input(text,searchForField);
 
         return this;
     }
 
     public SearchLanguagesPage clickGoButton(){
-        click(getGoButton());
+        click(goButton);
 
         return this;
     }

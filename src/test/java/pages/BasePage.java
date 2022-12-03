@@ -1,8 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,37 +11,29 @@ public abstract class BasePage {
     private WebDriver driver;
 
     public BasePage(WebDriver driver) {
+
         this.driver = driver;
+        PageFactory.initElements(getDriver(),this);
     }
 
     public WebDriver getDriver() {
         return driver;
     }
 
-    private WebElement getElement(By by) {
-
-        return getDriver().findElement(by);
+    public String getTextOfElement(WebElement element) {
+        return element.getText();
     }
 
-    public String getTextOfElement(By by) {
-        return getElement(by).getText();
+    public int getListSize(List <WebElement> list) {
+
+        return list.size();
     }
 
-    private List<WebElement> getElements(By by) {
-
-        return getDriver().findElements(by);
-    }
-
-    public int getListSize(By by) {
-
-        return getElements(by).size();
-    }
-
-    protected List<String> getElementsText(By by) {
-        if(getListSize(by) > 0) {
+    protected List<String> getElementsText(List<WebElement> list) {
+        if(list.size() > 0) {
             List<String> textList = new ArrayList<>();
 
-            for (WebElement element : getElements(by)) {
+            for (WebElement element : list) {
                 textList.add(element.getText());
             }
 
@@ -51,11 +43,11 @@ public abstract class BasePage {
         return null;
     }
 
-    protected List<String> getElementsTextInLowerCase(By by) {
-        if(getListSize(by) > 0) {
+    protected List<String> getElementsTextInLowerCase(List<WebElement> list) {
+        if(list.size() > 0) {
             List<String> textList = new ArrayList<>();
 
-            for (WebElement element : getElements(by)) {
+            for (WebElement element : list) {
                 textList.add(element.getText().toLowerCase());
             }
             return textList;
@@ -63,11 +55,11 @@ public abstract class BasePage {
         return null;
     }
 
-    protected void click(By by) {
-        getElement(by).click();
+    protected void click(WebElement element) {
+        element.click();
     }
 
-    protected void input(String text, By by) {
-        getElement(by).sendKeys(text);
+    protected void input(String text, WebElement element) {
+        element.sendKeys(text);
     }
 }

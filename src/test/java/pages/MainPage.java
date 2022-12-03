@@ -2,34 +2,28 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public abstract class MainPage extends BasePage {
+    @FindBy (xpath = "//div[@id='navigation']//a[@href='/search.html']")
+    private WebElement searchLanguagesLink;
 
-    private final By START_LINK = By.xpath("//div[@id='navigation']//a[text()='Start']");
-    private final By SEARCH_LANGUAGES_LINK = By.xpath("//div[@id='navigation']//a[@href='/search.html']");
+    @FindBy (xpath = "//div[@id='navigation']//a[text()='Start']")
+    private WebElement startLink;
 
     public MainPage(WebDriver driver) {
         super(driver);
     }
 
-    protected By getSearchLanguagesLink() {
-
-        return SEARCH_LANGUAGES_LINK;
-    }
-
-    protected By getStartLink() {
-        return START_LINK;
-    }
-
     public SearchLanguagesPage clickSearchLanguagesLink() {
-
-        click(getSearchLanguagesLink());
+        click(searchLanguagesLink);
 
         return new SearchLanguagesPage(getDriver());
     }
 
     public StartPage clickStartLink() {
-        click(getStartLink());
+        click(startLink);
 
     return new StartPage(getDriver());
     }

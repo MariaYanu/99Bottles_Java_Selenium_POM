@@ -44,14 +44,14 @@ public abstract class BaseTest {
         getDriver().get(BASE_URL);
         return new StartPage(getDriver());
     }
-//
-//    public String getExternalPageTitle() {
-//
-//        return getDriver().getTitle();
-//    }
-//
-//    public String getExternalPageURL() {
-//
-//        return getDriver().getCurrentUrl();
-//    }
+
+    public String getExternalPageTitle() {
+
+        return getDriver().getTitle();
+    }
+
+    public String getExternalPageURL() {
+
+        return getDriver().getCurrentUrl();
+    }
 }
