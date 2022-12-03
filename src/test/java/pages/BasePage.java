@@ -24,14 +24,22 @@ public abstract class BasePage {
         return element.getText();
     }
 
+    public String getUrl() {
+        return getDriver().getCurrentUrl();
+    }
+    public String getTitle() {
+        return getDriver().getTitle();
+    }
+
     public int getListSize(List <WebElement> list) {
 
         return list.size();
     }
 
     protected List<String> getElementsText(List<WebElement> list) {
+        List<String> textList = new ArrayList<>();
+
         if(list.size() > 0) {
-            List<String> textList = new ArrayList<>();
 
             for (WebElement element : list) {
                 textList.add(element.getText());
@@ -40,19 +48,33 @@ public abstract class BasePage {
             return textList;
         }
 
-        return null;
+        return textList;
     }
 
     protected List<String> getElementsTextInLowerCase(List<WebElement> list) {
+        List<String> textList = new ArrayList<>();
+
         if(list.size() > 0) {
-            List<String> textList = new ArrayList<>();
 
             for (WebElement element : list) {
                 textList.add(element.getText().toLowerCase());
             }
             return textList;
         }
-        return null;
+        return textList;
+    }
+
+    protected List<String> getElementsTextInUpperCase(List<WebElement> list) {
+        List<String> textList = new ArrayList<>();
+
+        if(list.size() > 0) {
+
+            for (WebElement element : list) {
+                textList.add(element.getText().toUpperCase());
+            }
+            return textList;
+        }
+        return textList;
     }
 
     protected void click(WebElement element) {
@@ -61,5 +83,19 @@ public abstract class BasePage {
 
     protected void input(String text, WebElement element) {
         element.sendKeys(text);
+    }
+
+    protected void clear(WebElement element) {
+        element.clear();
+    }
+
+    public void clickClearInput(WebElement element, String text) {
+        click(element);
+
+        if(!getElementText(element).isEmpty()){
+            clear(element);
+        }
+
+        input(text,element);
     }
 }
