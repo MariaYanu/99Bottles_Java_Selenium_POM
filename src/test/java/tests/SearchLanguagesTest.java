@@ -14,7 +14,7 @@ public class SearchLanguagesTest extends BaseTest {
 
         List<String> languagesNames =
                 openBaseURL()
-                .clickSearchLanguagesLink()
+                .clickSearchLanguagesHeader()
                 .clickSearchForField()
                 .inputSearchCriteria(LANGUAGE_NAME)
                 .clickGoButton()

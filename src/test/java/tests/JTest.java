@@ -1,8 +1,10 @@
 package tests;
 
 import base.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.JQueryLanguagePage;
+import pages.browse_languages.letters.JPage;
+import pages.browse_languages.languages.JQueryLanguagePage;
 
 public class JTest extends BaseTest {
 
@@ -14,6 +16,19 @@ public class JTest extends BaseTest {
 
         JQueryLanguagePage jQueryLanguagePage = new JQueryLanguagePage(getDriver());
 
-        openBaseURL();
+        String oldUrl = openBaseURL()
+                .clickBrowseLanguagesFooter()
+                .clickJSubmenu()
+                .getJPageUrl();
+
+        new JPage(getDriver()).clickJQueryLink();
+
+        Assert.assertNotEquals(oldUrl, getDriver().getCurrentUrl());
+
+        String actualUrl = jQueryLanguagePage.getUrl();
+        String actualTitle = jQueryLanguagePage.getTitle();
+
+        Assert.assertEquals(actualUrl,expectedUrl);
+        Assert.assertEquals(actualTitle,expectedTitle);
     }
 }

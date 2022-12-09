@@ -1,10 +1,10 @@
-package pages;
+package pages.search_languages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SearchLanguagesPage extends SearchLanguagesSubMenuPage{
+public class SearchLanguagesPage extends SearchLanguagesSubMenuPage {
 
     @FindBy(name = "search")
     private WebElement searchForField;

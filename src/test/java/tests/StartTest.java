@@ -12,7 +12,7 @@ public class StartTest extends BaseTest {
 
         String h2HeaderText =
                 openBaseURL()
-                        .clickStartLink()
+                        .clickStartHeader()
                         .getH2HeaderText();
 
         Assert.assertEquals(h2HeaderText,expectedResult);

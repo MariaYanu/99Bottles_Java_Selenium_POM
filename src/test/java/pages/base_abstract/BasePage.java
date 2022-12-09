@@ -1,4 +1,4 @@
-package pages;
+package pages.base_abstract;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,7 +36,7 @@ public abstract class BasePage {
         return list.size();
     }
 
-    protected List<String> getElementsText(List<WebElement> list) {
+    public List<String> getElementsText(List<WebElement> list) {
         List<String> textList = new ArrayList<>();
 
         if(list.size() > 0) {
@@ -51,7 +51,7 @@ public abstract class BasePage {
         return textList;
     }
 
-    protected List<String> getElementsTextInLowerCase(List<WebElement> list) {
+    public List<String> getElementsTextInLowerCase(List<WebElement> list) {
         List<String> textList = new ArrayList<>();
 
         if(list.size() > 0) {
@@ -64,7 +64,7 @@ public abstract class BasePage {
         return textList;
     }
 
-    protected List<String> getElementsTextInUpperCase(List<WebElement> list) {
+    public List<String> getElementsTextInUpperCase(List<WebElement> list) {
         List<String> textList = new ArrayList<>();
 
         if(list.size() > 0) {
@@ -77,15 +77,15 @@ public abstract class BasePage {
         return textList;
     }
 
-    protected void click(WebElement element) {
+    public void click(WebElement element) {
         element.click();
     }
 
-    protected void input(String text, WebElement element) {
+    public void input(String text, WebElement element) {
         element.sendKeys(text);
     }
 
-    protected void clear(WebElement element) {
+    public void clear(WebElement element) {
         element.clear();
     }
 
