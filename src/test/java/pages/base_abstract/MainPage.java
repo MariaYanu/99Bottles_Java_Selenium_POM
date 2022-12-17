@@ -25,6 +25,12 @@ public abstract class MainPage extends BasePage {
     @FindBy (xpath = "//ul[@id='menu']//li")
     private List<WebElement> headerLinks;
 
+    @FindBy(id = "main")
+    private WebElement mainBody;
+
+    @FindBy(tagName = "img")
+    private List<WebElement> images;
+
     public MainPage(WebDriver driver) {
         super(driver);
     }
@@ -59,6 +65,16 @@ public abstract class MainPage extends BasePage {
 
     public int getHeaderLinksSize() {
        return getListSize(headerLinks);
+    }
+
+    public String getPageContext() {
+
+       return getElementText(mainBody);
+    }
+
+    public List<WebElement> getImages() {
+
+        return images;
     }
 }
 

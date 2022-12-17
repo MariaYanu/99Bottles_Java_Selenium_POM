@@ -32,6 +32,11 @@ public abstract class TablePage extends MainPage {
         return onlyFirstSymbols;
     }
 
+    public List<WebElement> getLanguagesLinks() {
+
+        return namesList;
+    }
+
 
 
 
