@@ -10,6 +10,12 @@ import pages.start.StartPage;
 import java.util.List;
 
 public abstract class MainPage extends BasePage {
+
+    @FindBy(xpath = "//div[@id='header']/h1")
+    private WebElement h1LogoHeader;
+
+    @FindBy(xpath = "//div[@id='header']/h2")
+    private WebElement h2LogoHeader;
     @FindBy (xpath = "//div[@id='navigation']//a[@href='/search.html']")
     private WebElement searchLanguagesHeader;
 
@@ -33,6 +39,16 @@ public abstract class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
+    }
+
+    public String getH1LogoHeaderText() {
+
+        return getText(h1LogoHeader);
+    }
+
+    public String getH2LogoHeaderText() {
+
+        return getText(h2LogoHeader);
     }
 
     public SearchLanguagesPage clickSearchLanguagesHeader() {
@@ -69,7 +85,7 @@ public abstract class MainPage extends BasePage {
 
     public String getPageContext() {
 
-       return getElementText(mainBody);
+       return getText(mainBody);
     }
 
     public List<WebElement> getImages() {

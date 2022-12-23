@@ -31,7 +31,7 @@ public class APISearchLanguagesTest extends BaseTest {
         SearchLanguagesPage searchLanguagesPage =
                 openBaseURL().clickSearchLanguagesHeader();
 
-        Assert.assertEquals(searchLanguagesPage.getAction(), TestUtils.getBaseUrl()+ACTION);
+        Assert.assertEquals(searchLanguagesPage.getAction(), getBaseUrl()+ACTION);
         Assert.assertEquals(searchLanguagesPage.getMethod(), METHOD);
         Assert.assertEquals(searchLanguagesPage.getInput1Name(), NAME_INPUT_1);
         Assert.assertEquals(searchLanguagesPage.getInput2Name(), NAME_INPUT_2);
@@ -54,7 +54,7 @@ public class APISearchLanguagesTest extends BaseTest {
         System.out.println(httpRequest);
 
         Assert.assertEquals(httpRequest.get(0), expectedMethod);
-        Assert.assertEquals(httpRequest.get(1), TestUtils.getBaseUrl() + expectedEndPoint);
+        Assert.assertEquals(httpRequest.get(1), getBaseUrl() + expectedEndPoint);
         Assert.assertEquals(httpRequest.get(2), "Optional.empty");
         Assert.assertEquals(httpRequest.get(3), "Optional.empty");
     }
@@ -76,7 +76,7 @@ public class APISearchLanguagesTest extends BaseTest {
 
         Assert.assertEquals(httpResponse.get(0), expectedStatusCode);
         Assert.assertEquals(httpResponse.get(1), expectedStatusText);
-        Assert.assertEquals(httpResponse.get(2), TestUtils.getBaseUrl() + expectedEndPoint);
+        Assert.assertEquals(httpResponse.get(2), getBaseUrl() + expectedEndPoint);
         Assert.assertTrue(Double.parseDouble(httpResponse.get(3).substring(10, 14)) <= expectedResponseTimeStandard);
     }
 
@@ -94,7 +94,7 @@ public class APISearchLanguagesTest extends BaseTest {
         System.out.println(httpRequest);
 
         Assert.assertEquals(httpRequest.get(0).toLowerCase(), METHOD);
-        Assert.assertEquals(httpRequest.get(1), TestUtils.getBaseUrl() + ACTION);
+        Assert.assertEquals(httpRequest.get(1), getBaseUrl() + ACTION);
         Assert.assertEquals(httpRequest.get(2), "Optional[" + PAYLOAD + "]");
         Assert.assertEquals(httpRequest.get(3), "Optional.empty");
     }
@@ -119,7 +119,7 @@ public class APISearchLanguagesTest extends BaseTest {
 
         Assert.assertEquals(httpResponse.get(0), expectedStatusCode);
         Assert.assertEquals(httpResponse.get(1), expectedStatusText);
-        Assert.assertEquals(httpResponse.get(2), TestUtils.getBaseUrl() + expectedEndPoint);
+        Assert.assertEquals(httpResponse.get(2), getBaseUrl() + expectedEndPoint);
         Assert.assertTrue(Double.parseDouble(httpResponse.get(3).substring(10, 14)) <= expectedResponseTimeStandard);
         Assert.assertNotEquals(searchLanguagesPage.getPageContext(),PAGE_CONTEXT_BEFORE_REQUEST);
     }
@@ -143,7 +143,7 @@ public class APISearchLanguagesTest extends BaseTest {
             linkURL = link.getAttribute("href");
 
             if(linkURL != null && !linkURL.isBlank() && !linkURL.isEmpty()) {
-                if(!linkURL.startsWith(TestUtils.getBaseUrl())) {
+                if(!linkURL.startsWith(getBaseUrl())) {
                     Reporter.log(linkURL + " is external link", true);
                     internalLinks--;
                 } else {

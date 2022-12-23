@@ -15,6 +15,6 @@ public class StartPage extends StartSubMenuPage {
 
     public String getH2HeaderText(){
 
-        return getElementText(h2Header);
+        return getText(h2Header);
     }
 }

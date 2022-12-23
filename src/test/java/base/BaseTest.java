@@ -7,7 +7,6 @@ import org.testng.Reporter;
 import org.testng.annotations.*;
 import pages.start.StartPage;
 import utils.ReportUtils;
-import utils.TestUtils;
 
 import java.lang.reflect.Method;
 
@@ -15,7 +14,7 @@ public abstract class BaseTest {
 
     private WebDriver driver;
 
-    private String BASE_URL = TestUtils.getBaseUrl();
+    private static final String BASE_URL = "https://www.99-bottles-of-beer.net/";
 
     @BeforeSuite
     protected void beforeSuite(ITestContext context) {
@@ -38,6 +37,11 @@ public abstract class BaseTest {
     }
 
     protected WebDriver getDriver() {return driver;}
+
+    public static String getBaseUrl() {
+
+        return BASE_URL;
+    }
 
     public StartPage openBaseURL() {
 

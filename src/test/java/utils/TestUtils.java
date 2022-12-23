@@ -5,14 +5,11 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import static base.BaseTest.getBaseUrl;
+
 public final class TestUtils {
 
-    private static final String BASE_URL = "https://www.99-bottles-of-beer.net/";
-
-    public static String getBaseUrl() {
-
-        return BASE_URL;
-    }
+    private static final String BASE_URL = getBaseUrl();
 
     private static void getBottles(StringBuilder lyrics, int number, String btl) {
         lyrics.append(number).append(btl);

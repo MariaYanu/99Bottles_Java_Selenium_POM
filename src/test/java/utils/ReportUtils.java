@@ -7,6 +7,8 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static base.BaseTest.getBaseUrl;
+
 public class ReportUtils {
 
 //    Reporter
@@ -49,7 +51,7 @@ public class ReportUtils {
         String header = "\tTest Run\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + "\n";
         String currentDate = "\tDate: " + getCurrentDateTime() + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + "\n";
         String projectName = "\tProject: AutomationQA_05" + "\n";
-        String baseURL = "\tBASE_URL: " + TestUtils.getBaseUrl() + "\t\t\t\t\t\t\t\t\t\t\t" + "\n";
+        String baseURL = "\tBASE_URL: " + getBaseUrl() + "\t\t\t\t\t\t\t\t\t\t\t" + "\n";
 
         return H_LINE + header + currentDate + projectName + baseURL + H_LINE;
     }

@@ -22,7 +22,7 @@ public abstract class BasePage {
         return driver;
     }
 
-    public String getElementText(WebElement element) {
+    public String getText(WebElement element) {
         return element.getText();
     }
 
@@ -100,7 +100,7 @@ public abstract class BasePage {
     public void clickClearInput(WebElement element, String text) {
         click(element);
 
-        if(!getElementText(element).isEmpty()){
+        if(!getText(element).isEmpty()){
             clear(element);
         }
 
