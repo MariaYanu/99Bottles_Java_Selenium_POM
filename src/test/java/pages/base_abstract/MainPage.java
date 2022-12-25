@@ -92,5 +92,13 @@ public abstract class MainPage extends BasePage {
 
         return images;
     }
+
+    public List<WebElement> getHeaderLinks() {
+
+        return headerLinks;
+    }
+    public void clickTopMenu(int index) {
+        getHeaderLinks().get(index).click();
+    }
 }
 
