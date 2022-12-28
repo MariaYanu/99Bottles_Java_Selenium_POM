@@ -76,7 +76,7 @@ public abstract class MainPage extends BasePage {
     }
 
     public List<String> getHeaderLinksTextInLowerCase() {
-       return getElementsTextInLowerCase(headerLinks);
+       return getListTextInLowerCase(headerLinks);
     }
 
     public int getHeaderLinksSize() {
