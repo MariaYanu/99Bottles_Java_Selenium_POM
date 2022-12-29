@@ -9,6 +9,14 @@ import static base.BaseTest.getBaseUrl;
 
 public final class TestUtils {
 
+    final private static String BOTTLES = " bottles of beer";
+    final private static String WALL = " on the wall";
+    final private static String COMMA_SPACE = ", ";
+    final private static String DOT = ".";
+    final private static String TAKE = "Take one down and pass it around";
+    final private static String BR = "\n";
+    final private static String noMore = "No more";
+
     private static final String BASE_URL = getBaseUrl();
 
     private static void getBottles(StringBuilder lyrics, int number, String btl) {
@@ -18,6 +26,66 @@ public final class TestUtils {
     private static void getNoMore(StringBuilder lyrics, String noMore, String btl) {
         lyrics.append(noMore).append(btl);
     }
+
+    private static StringBuilder method1(int i, String bottles) {
+
+        return new StringBuilder().append(i)
+                .append(bottles)
+                .append(WALL)
+                .append(COMMA_SPACE)
+                .append(i)
+                .append(bottles)
+                .append(DOT)
+                .append(BR)
+                .append(TAKE)
+                .append(COMMA_SPACE);
+    }
+
+    private static StringBuilder method2(int i, String bottles) {
+
+        return new StringBuilder().append(i)
+                .append(bottles)
+                .append(WALL)
+                .append(DOT);
+    }
+
+    public static String createSongLyrics() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(method1(99, BOTTLES));
+
+        for (int i = 98; i >= 1; i--) {
+            if(i == 1) {
+                sb
+                        .append(method2(i, BOTTLES.replace("s", "")))
+                        .append(method1(i, BOTTLES.replace("s", "")));
+                break;
+            }
+            sb
+                    .append(method2(i, BOTTLES)
+                    .append(method1(i, BOTTLES)));
+        }
+
+        sb
+                .append(noMore.toLowerCase())
+                .append(BOTTLES)
+                .append(WALL)
+                .append(DOT)
+                .append(noMore)
+                .append(BOTTLES)
+                .append(WALL)
+                .append(COMMA_SPACE)
+                .append(noMore.toLowerCase())
+                .append(BOTTLES)
+                .append(DOT)
+                .append(BR)
+                .append("Go to the store and buy some more")
+                .append(COMMA_SPACE)
+                .append(method2(99, BOTTLES));
+
+        return sb.toString();
+    }
+    //
 
     public static String createSongLyricsTextUsingAlgorithm() {
         final String BOTTLES_WALL_CS = " bottles of beer on the wall, ";
@@ -152,20 +220,20 @@ public final class TestUtils {
         String sp = " ";
         String ln = "\n";
 
-        for (int i = 0; i < getTextOfCode().size() - 1; i ++ ) {
+        for (int i = 0; i < getTextOfCode().size() - 1; i++) {
 
             basicCode.append(count)
                     .append(sp)
                     .append(getTextOfCode().get(i))
                     .append(ln);
 
-            count+=10;
+            count += 10;
 
             if (count == 60) {
                 basicCode.append(count)
                         .append(sp)
                         .append(getTextOfCode()
-                        .get(getTextOfCode().size() - 1));
+                                .get(getTextOfCode().size() - 1));
             }
         }
 
@@ -203,9 +271,9 @@ public final class TestUtils {
     public static String getTrWithRequiredLanguage(String languageName) {
         List<String> languageInformation = new ArrayList<>();
         languageInformation.add("Joy inforichland 07/05/09 0");
-        for(String language : languageInformation){
+        for (String language : languageInformation) {
             String name = language.split(" ")[0];
-            if(name.equals(languageName)){
+            if (name.equals(languageName)) {
 
                 return language;
             }
