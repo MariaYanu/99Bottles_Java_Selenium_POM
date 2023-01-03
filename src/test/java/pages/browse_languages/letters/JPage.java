@@ -19,9 +19,4 @@ public class JPage extends LetterPage {
 
         return new JQueryLanguagePage(getDriver());
     }
-
-    public String getJPageUrl() {
-
-       return getUrl();
-    }
 }

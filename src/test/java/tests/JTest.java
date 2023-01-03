@@ -19,7 +19,7 @@ public class JTest extends BaseTest {
         String oldUrl = openBaseURL()
                 .clickBrowseLanguagesFooter()
                 .clickJSubmenu()
-                .getJPageUrl();
+                .getUrl();
 
         new JPage(getDriver()).clickJQueryLink();
 
@@ -30,5 +30,20 @@ public class JTest extends BaseTest {
 
         Assert.assertEquals(actualUrl,expectedUrl);
         Assert.assertEquals(actualTitle,expectedTitle);
+
+//        JPage jPage = new JPage(getDriver());
+//        JQueryLanguagePage jQueryLanguagePage = new JQueryLanguagePage(getDriver());
+//
+//        String oldURL = openBaseURL()
+//                .clickBrowseLanguagesFooterMenu()
+//                .clickJSubmenu()
+//                .getURL();
+//
+//        String actualURL = jPage.clickJQueryLanguage().getURL();
+//        String actualTitle = jQueryLanguagePage.getTitle();
+//
+//        Assert.assertNotEquals(oldURL, actualURL);
+//        Assert.assertEquals(actualURL, expectedURL);
+//        Assert.assertEquals(actualTitle, expectedTitle);
     }
 }
