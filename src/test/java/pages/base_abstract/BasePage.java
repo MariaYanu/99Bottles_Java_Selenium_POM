@@ -44,7 +44,7 @@ public abstract class BasePage {
         return list.size();
     }
 
-    public List<String> getElementsText(List<WebElement> list) {
+    public List<String> getListText(List<WebElement> list) {
         List<String> textList = new ArrayList<>();
 
         if(list.size() > 0) {
@@ -59,7 +59,7 @@ public abstract class BasePage {
         return textList;
     }
 
-    public List<String> getElementsTextInLowerCase(List<WebElement> list) {
+    public List<String> getListTextInLowerCase(List<WebElement> list) {
         List<String> textList = new ArrayList<>();
 
         if(list.size() > 0) {

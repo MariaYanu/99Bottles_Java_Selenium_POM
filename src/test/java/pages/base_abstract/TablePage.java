@@ -18,7 +18,7 @@ public abstract class TablePage extends MainPage {
 
     public List<String> getNamesInLowerCase(){
 
-       return getElementsTextInLowerCase(namesList);
+       return getListTextInLowerCase(namesList);
     }
 
     public List<String> getNamesFirstSymbolInLowerCase() {
